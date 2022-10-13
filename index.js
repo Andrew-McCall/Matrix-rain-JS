@@ -39,8 +39,8 @@ const draw = () => {
         }
 	}
 
-    for (let i = 0; i < canvas.width; i+= 100) {
-        if(Math.random() > 0.98){
+    for (let i = 0; i < canvas.width; i+= 10) {
+        if(Math.random() > 0.9984){
             Spawn()
         } 
     }
@@ -48,11 +48,9 @@ const draw = () => {
 };
 
 const Spawn = ()=>{
-    console.log("Spawn")
     const x = Math.floor(canvas.width*Math.random());
-
     for (let i = 0; i < rainDrops.length; i++) {
-        if (rainDrops[i].y < 20 && rainDrops[i].x - 15 < x && rainDrops[i].x + 15 > x){
+        if (Math.abs(rainDrops[i].x - x) < rainDrops[i].size + 10){
             Spawn();
             return;
         }
