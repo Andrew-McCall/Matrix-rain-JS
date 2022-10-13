@@ -15,14 +15,11 @@ const rainDrops = [];
 const draw = () => {
 	context.fillStyle = 'rgba(0, 0, 0, 0.1)';
 	context.fillRect(0, 0, canvas.width, canvas.height);
-	
-	
-	// 
 
 	for(let i = 0; i < rainDrops.length; i++)
 	{
 
-        context.fillStyle = '#DFC';
+        context.fillStyle = '#FFF';
 		context.font = rainDrops[i].size + 'px monospace';
 
         const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
@@ -42,14 +39,10 @@ const draw = () => {
         }
 	}
 
-    if(Math.random() > 0.94){
-        Spawn()
-    }
-    if(Math.random() > 0.94){
-        Spawn()
-    }
-    if(Math.random() > 0.94){
-        Spawn()
+    for (let i = 0; i < canvas.width; i+= 100) {
+        if(Math.random() > 0.98){
+            Spawn()
+        } 
     }
     
 };
@@ -64,7 +57,7 @@ const Spawn = ()=>{
             return;
         }
     }
-    rainDrops.push({x:Math.floor(canvas.width*Math.random()), y:0, size:Math.floor(5*Math.random()+8*Math.random()+8*Math.random()+8*Math.random()+8*Math.random()+8*Math.random())});
+    rainDrops.push({x:Math.floor(canvas.width*Math.random()), y:0, size:Math.floor(5*Math.random()+5*Math.random()+5*Math.random()+5*Math.random()+5*Math.random()+5*Math.random()+5*Math.random()+5*Math.random()+5*Math.random())});
 }
 
 setInterval(draw, 50);
